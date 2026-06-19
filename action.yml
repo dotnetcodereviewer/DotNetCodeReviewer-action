@@ -1,0 +1,48 @@
+name: "DotNetCodeReviewer"
+description: "Static code review for C#/.NET on pull requests — posts inline review comments for security, performance, async, and design issues."
+author: "DotNetCodeReviewer"
+branding:
+  icon: "check-circle"
+  color: "purple"
+
+inputs:
+  api-key:
+    description: "Your DotNetCodeReviewer API key. Store it as a repository secret and pass it here (e.g. ${{ secrets.DNCR_API_KEY }})."
+    required: true
+  api-url:
+    description: "Base URL of the DotNetCodeReviewer API."
+    required: false
+    default: "https://dotnetcodereviewer-api.azurewebsites.net"
+  github-token:
+    description: "Token used to post PR review comments. Defaults to the automatic GITHUB_TOKEN."
+    required: false
+    default: ${{ github.token }}
+  fail-on:
+    description: "Fail the check if issues of this severity or higher are found. One of: none, suggestion, warning, critical."
+    required: false
+    default: "critical"
+  max-files:
+    description: "Safety cap on how many changed C# files to review in one run."
+    required: false
+    default: "50"
+
+outputs:
+  total-issues:
+    description: "Total number of issues found across all reviewed files."
+    value: ${{ steps.review.outputs.total-issues }}
+  critical-issues:
+    description: "Number of critical issues found."
+    value: ${{ steps.review.outputs.critical-issues }}
+
+runs:
+  using: "composite"
+  steps:
+    - id: review
+      shell: bash
+      run: node "$GITHUB_ACTION_PATH/dist/index.js"
+      env:
+        INPUT_API_KEY: ${{ inputs.api-key }}
+        INPUT_API_URL: ${{ inputs.api-url }}
+        INPUT_GITHUB_TOKEN: ${{ inputs.github-token }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_MAX_FILES: ${{ inputs.max-files }}
