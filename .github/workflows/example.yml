@@ -1,0 +1,23 @@
+name: Code Review
+
+on:
+  pull_request:
+
+# The action posts a PR review, so it needs write access to pull requests.
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  dotnet-code-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: DotNetCodeReviewer
+        uses: dotnetcodereviewer/DotNetCodeReviewer-action@v1
+        with:
+          api-key: ${{ secrets.DNCR_API_KEY }}
+          # Optional settings (defaults shown):
+          # fail-on: critical      # none | suggestion | warning | critical
+          # max-files: 50
