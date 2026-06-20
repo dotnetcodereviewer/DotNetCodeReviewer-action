@@ -9,3 +9,16 @@
 /.vs/DotNetCodeReviewer-action.slnx/FileContentIndex/45f51be8-2cf7-42fe-aaa0-a9d1cec61cde.vsidx
 /.vs/DotNetCodeReviewer-action.slnx/FileContentIndex/74dd5e1a-173e-4bf5-b2f7-3818a60d14be.vsidx
 /.vs/DotNetCodeReviewer-action.slnx/FileContentIndex
+
+# Visual Studio
+.vs/
+*.user
+bin/
+obj/
+
+# Node (if you ever add tooling)
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
