@@ -1,5 +1,5 @@
 name: "DotNetCodeReviewer"
-description: "Static code review for C#/.NET on pull requests — posts inline review comments for security, performance, async, and design issues."
+description: "Automated C#/.NET PR reviews with inline comments for security, performance, async, and design issues."
 author: "DotNetCodeReviewer"
 branding:
   icon: "check-circle"
