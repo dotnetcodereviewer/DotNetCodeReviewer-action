@@ -7,7 +7,7 @@ branding:
 
 inputs:
   api-key:
-    description: "Your DotNetCodeReviewer API key. Store it as a repository secret and pass it here (e.g. ${{ secrets.DNCR_API_KEY }})."
+    description: "Your DotNetCodeReviewer API key. Store it as a repository secret and pass it through the api-key input."
     required: true
   api-url:
     description: "Base URL of the DotNetCodeReviewer API."
