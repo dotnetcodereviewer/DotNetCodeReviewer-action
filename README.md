@@ -4,6 +4,15 @@ Automatic **C#/.NET static code review on every pull request.** This action send
 
 Built on Roslyn. Powered by the same engine as the DotNetCodeReviewer MCP server and REST API.
 
+## See it in action
+
+When you open a pull request, DotNetCodeReviewer reviews the changed C# files and posts its findings as **inline comments  right on the line that triggered them**, with the severity, rule ID, and a suggested fix:
+
+![Example: an inline PR review comment flagging a blocking async call](docs/pr-exception-comment-example.png)
+![Example: an inline PR review comment flagging a blocking async call](docs/pr-synchronously-comment-example.png)
+
+No copy-pasting code into a chat box, no separate dashboard  the review shows up in your PR, automatically, on every push.
+
 ## What it catches
 
 - **Security**  SQL injection, hardcoded secrets, weak cryptography
@@ -71,4 +80,4 @@ The workflow needs `pull-requests: write` to post the review. If your organizati
 
 ---
 
-Questions or feedback: open an issue on the [DotNetCodeReviewer repo](https://github.com/Ravindar10/DotNetCodeReviewer).
+Questions or feedback: open an issue on the [action repository](https://github.com/dotnetcodereviewer/DotNetCodeReviewer-action/issues).
