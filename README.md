@@ -8,7 +8,7 @@ Built on Roslyn. Powered by the same engine as the DotNetCodeReviewer MCP server
 
 When you open a pull request, DotNetCodeReviewer reviews the changed C# files and posts its findings as **inline comments  right on the line that triggered them**, with the severity, rule ID, and a suggested fix:
 
-![Example: an inline PR review comment flagging a blocking async call](docs/pr-exception-comment-example.png)
+![Example: an inline PR review comment flagging a blocking exception call](docs/pr-exception-comment-example.png)
 ![Example: an inline PR review comment flagging a blocking async call](docs/pr-synchronously-comment-example.png)
 
 No copy-pasting code into a chat box, no separate dashboard  the review shows up in your PR, automatically, on every push.
